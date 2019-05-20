@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'react-in-angular-using-iframe';
+  title = 'angular-sample-app';
 }
