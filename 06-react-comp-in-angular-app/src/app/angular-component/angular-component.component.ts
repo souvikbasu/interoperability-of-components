@@ -8,5 +8,9 @@ import { Component, OnInit } from "@angular/core";
 export class AngularComponentComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    import("../../assets/react-app/static/js/2.3310f33a.chunk.js").then(() => {
+      import("../../assets/react-app/static/js/main.a1ec71de.chunk.js");
+    });
+  }
 }
