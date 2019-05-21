@@ -1,0 +1,53 @@
+﻿<template>
+  <div>
+    <div>
+      <div>Process variables:</div>
+      <div id="process"></div>
+      <div>Task variables:</div>
+      <div id="task"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+  (function(window, document, undefined) {
+    var thatDoc = document;
+    var thisDoc = (thatDoc._currentScript || thatDoc.currentScript).ownerDocument;
+
+    var template = thisDoc.querySelector('template').content;
+    var element = Object.create(HTMLElement.prototype);
+
+    element.createdCallback = function() {
+      var shadowRoot = this.createShadowRoot();
+      var clone = thatDoc.importNode(template, true);
+      shadowRoot.appendChild(clone);
+
+      this.process = shadowRoot.querySelector('#process');
+      this.task = shadowRoot.querySelector('#task');
+      if (this.hasAttribute('process')) {
+        this.setProcessVariables(this.getAttribute('process'));
+        this.setTaskVariables(this.getAttribute('task'));
+      }
+    };
+
+    element.attributeChangedCallback = function(attr, oldVal, newVal) {
+      if (attr === 'process') {
+        this.setProcessVariables(newVal);
+      } else if (attr === 'task') {
+        this.setTaskVariables(newVal);
+      }
+    };
+
+    element.setProcessVariables = function(val) {
+      this.process.textContent = val;
+    };
+
+    element.setTaskVariables = function(val) {
+      this.task.textContent = val;
+    };
+
+    thatDoc.registerElement('form-with-variables', {
+      prototype: element
+    });
+  })(window, document);
+</script>

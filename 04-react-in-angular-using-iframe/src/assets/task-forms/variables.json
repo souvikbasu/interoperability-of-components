@@ -1,0 +1,17 @@
+{
+  "var_name1": {
+    "type": "String",
+    "value": "var_value1",
+    "valueInfo": {}
+  },
+  "var_name2": {
+    "type": "String",
+    "value": "var_value2",
+    "valueInfo": {}
+  },
+  "var_name3": {
+    "type": "String",
+    "value": "var_value3",
+    "valueInfo": {}
+  }
+}

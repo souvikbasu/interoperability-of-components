@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/assets/task-forms/react/static/js/main.19f5a26d.chunk.js",
+    "main.js.map": "/assets/task-forms/react/static/js/main.19f5a26d.chunk.js.map",
+    "runtime~main.js": "/assets/task-forms/react/static/js/runtime~main.57413a46.js",
+    "runtime~main.js.map": "/assets/task-forms/react/static/js/runtime~main.57413a46.js.map",
+    "static/js/2.dc155f86.chunk.js": "/assets/task-forms/react/static/js/2.dc155f86.chunk.js",
+    "static/js/2.dc155f86.chunk.js.map": "/assets/task-forms/react/static/js/2.dc155f86.chunk.js.map",
+    "index.html": "/assets/task-forms/react/index.html",
+    "precache-manifest.7a12a835a83c85d9b0edefa435d1fadc.js": "/assets/task-forms/react/precache-manifest.7a12a835a83c85d9b0edefa435d1fadc.js",
+    "service-worker.js": "/assets/task-forms/react/service-worker.js"
+  }
+}

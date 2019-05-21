@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="@@STYLES_CSS@@" />
+  </head>
+  <body class="font-sans">
+    <script>
+      console.log('Custom Form - 1 - listen to host messages');
+      window.addEventListener('message', receiveMessage, false);
+
+      window.onload = function() {
+        console.log('Custom Form - 2 - tell host we are ready now to listen to host messages');
+        parent.postMessage({ type: 'formLoaded' });
+      };
+
+      function receiveMessage(msgEvent) {
+        const message = msgEvent.data;
+        const messageData = message.data;
+
+        if (message.type === 'loadFormRequest') {
+          console.log('Custom Form - 3 - received event from host', messageData);
+          var script = document.createElement('script');
+          script.onload = () => addWebComponentToDOM(messageData);
+
+          console.log('Custom Form - 4 - append <script> tag to body. This will fetch the web component file and load it');
+          if (messageData.componentFileName) {
+            script.src = messageData.componentFileName;
+            document.body.appendChild(script);
+          } else if (messageData.componentJs) {
+            script.type = 'text/javascript';
+            script.text = messageData.componentJs;
+            document.body.appendChild(script);
+            addWebComponentToDOM(messageData);
+          }
+        } else if (message.type === 'updateVariables') {
+          console.log(messageData);
+          var customForm = document.querySelector(window.wcTag);
+          customForm.inputVariables = messageData.variables;
+          customForm.setAttribute('data-camunda-api-url', messageData.camundaApiUrl);
+          customForm.setAttribute('data-task-id', messageData.taskId);
+          customForm.setAttribute('data-process-definition-id', messageData.processDefinitionId);
+        }
+      }
+
+      function addWebComponentToDOM(messageData) {
+        console.log(`Custom Form - 5 - append web component tag <${window.wcTag} /> in body`);
+
+        if (this.existingElem) {
+          this.existingElem.parentNode.removeChild(this.existingElem);
+        }
+
+        var el = document.createElement(window.wcTag);
+
+        console.log(`Custom Form - 6 - set attribute 'variables' of web component with that received from task form host`);
+        el.inputVariables = messageData.variables;
+        el.setAttribute('data-camunda-api-url', messageData.camundaApiUrl);
+        el.setAttribute('data-task-id', messageData.taskId);
+        el.setAttribute('data-process-definition-id', messageData.processDefinitionId);
+        el.setAttribute('data-styles-css-url', '@@STYLES_CSS@@');
+        el.classList.add('block');
+        el.classList.add('border-4');
+        el.classList.add('border-dashed');
+        el.classList.add('border-theme-dark-blue');
+
+        console.log('Custom Form - 7 - listen to web component events');
+        el.addEventListener('complete', function(completeEvent) {
+          console.log(`Custom Form - 8 - <${window.wcTag} /> raised event to complete the task. Send message to host to complete the task`);
+          parent.postMessage({ type: 'formCompleteRequest', data: completeEvent.detail });
+        });
+        document.body.appendChild(el);
+        this.existingElem = document.querySelector(window.wcTag);
+      }
+    </script>
+  </body>
+</html>
