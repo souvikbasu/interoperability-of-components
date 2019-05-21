@@ -1,0 +1,9 @@
+.App {
+  display: block;
+  height: 500px;
+  width: 500px;
+  /* background-color: #52b6d1; */
+  padding: 20px;
+  font-size: 2rem;
+  border: solid 2px darkgray;
+}

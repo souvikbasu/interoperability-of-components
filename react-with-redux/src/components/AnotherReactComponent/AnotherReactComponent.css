@@ -1,0 +1,10 @@
+.AnotherReactComponent {
+  display: block;
+  height: 300px;
+  width: 300px;
+  /* background-color: #61dafb; */
+  padding: 20px;
+  font-size: 2rem;
+  border: solid 2px darkgray;
+  margin: 20px;
+}
