@@ -13,3 +13,8 @@ body {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+
+.react-root {
+  display: inline-block;
+  margin-left: 20px;
+}
