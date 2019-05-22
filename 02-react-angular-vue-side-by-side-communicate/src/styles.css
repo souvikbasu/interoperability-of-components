@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 40px;
+  background-color: rgb(220, 223, 219);
+}
+
+.angular-html-text {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.angular-root {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+#app {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.react-root {
+  display: inline-block;
+  margin-bottom: 20px;
+}
