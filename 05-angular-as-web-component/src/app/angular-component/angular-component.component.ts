@@ -3,7 +3,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 @Component({
   selector: "app-angular-component",
   template: `
-    <div>Angular Component</div>
+    <div>Angular Element</div>
   `,
   styles: [
     `
