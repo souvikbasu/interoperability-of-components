@@ -1,7 +1,7 @@
 import React from "react";
 import "./ReactComponent.css";
 
-function ReactComponent() {
+function ReactComponent({ msg }) {
   let domRef = React.createRef();
 
   const emitEvent = () => {
@@ -26,6 +26,7 @@ function ReactComponent() {
       <div>React Component</div>
       <button onClick={emitEvent}>Emit Event</button>
       <button onClick={postMessage}>Post Message</button>
+      <div>Message received: {msg}</div>
     </div>
   );
 }

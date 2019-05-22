@@ -25,6 +25,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="html-text">index.html</div>
     <h1 id="message_board">All messages will show up here</h1>
+    <button onclick="sendMessageToAll()">window.postMessage</button>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -49,6 +50,15 @@
         console.log(msgEvent);
         document.querySelector("#message_board").innerHTML = msgEvent.data.msg;
       });
+
+      function sendMessageToAll() {
+        window.postMessage(
+          {
+            msg: "Hi from index.html!!"
+          },
+          "*"
+        );
+      }
     </script>
   </body>
 </html>

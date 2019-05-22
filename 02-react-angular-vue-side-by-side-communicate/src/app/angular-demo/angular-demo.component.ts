@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, OnInit, ElementRef, ViewChild, Input } from "@angular/core";
 
 @Component({
   selector: "app-angular-demo",
@@ -7,6 +7,7 @@ import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 })
 export class AngularDemoComponent implements OnInit {
   @ViewChild("comp") comp: ElementRef;
+  @Input() msg: string;
 
   constructor() {}
 
