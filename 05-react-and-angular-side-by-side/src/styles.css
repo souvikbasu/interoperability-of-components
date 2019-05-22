@@ -14,7 +14,18 @@ body {
   margin-bottom: 20px;
 }
 
+.angular-root {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+#app {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
 .react-root {
   display: inline-block;
-  margin-left: 20px;
+  margin-bottom: 20px;
 }
