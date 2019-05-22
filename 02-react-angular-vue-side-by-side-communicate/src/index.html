@@ -24,7 +24,7 @@
     <!-- Angular -->
     <app-root class="angular-root"></app-root>
 
-    
+
     <!-- Vue -->
     <div id=app ></div>
     <script src=/assets/vue-app/js/chunk-vendors.46dbfb77.js></script>
@@ -51,7 +51,9 @@
         'sendMessage',
         msgEvent => {
           console.log(msgEvent)
-          document.querySelector('#message_board').innerHTML = msgEvent.detail.msg
+          if(msgEvent.detail.msg) {
+            document.querySelector('#message_board').innerHTML = msgEvent.detail.msg
+          }
         }
       );
 
@@ -59,7 +61,9 @@
         'message',
         msgEvent => {
           console.log(msgEvent)
-          document.querySelector('#message_board').innerHTML = msgEvent.data.msg
+          if(msgEvent.data.msg) {
+            document.querySelector('#message_board').innerHTML = msgEvent.data.msg
+          }
         }
       );
     </script>
