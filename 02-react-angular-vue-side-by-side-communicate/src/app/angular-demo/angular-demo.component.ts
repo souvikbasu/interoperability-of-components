@@ -11,7 +11,20 @@ export class AngularDemoComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    window.addEventListener("message", postMsg => {
+      console.log("Received in Angular", postMsg.data.msg);
+      this.msg = postMsg.data.msg;
+    });
+
+    var el = document.querySelector("body");
+    el.addEventListener<any>("sendMessage", msgEvent => {
+      console.log(msgEvent);
+      if (msgEvent.detail.msg) {
+        this.msg = msgEvent.detail.msg;
+      }
+    });
+  }
 
   emitEvent() {
     var event = new CustomEvent("sendMessage", {

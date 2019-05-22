@@ -47,6 +47,19 @@
           "click",
           this.postMessage.bind(this)
         );
+
+        window.addEventListener("message", postMsg => {
+          console.log("Received in WC", postMsg.data.msg);
+          this.msgBox.textContent = postMsg.data.msg;
+        });
+
+        var el = document.querySelector("body");
+        el.addEventListener("sendMessage", msgEvent => {
+          console.log(msgEvent);
+          if (msgEvent.detail.msg) {
+            this.msgBox.textContent = msgEvent.detail.msg;
+          }
+        });
       }
     }
 

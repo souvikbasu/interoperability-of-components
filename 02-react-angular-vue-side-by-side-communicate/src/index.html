@@ -12,67 +12,60 @@
       rel="stylesheet"
     />
 
-
     <!-- Vue js -->
     <link href=/assets/vue-app/css/app.6ab42d18.css rel=stylesheet>
   </head>
   <body>
     <div class="angular-html-text">index.html</div>
 
-    <h1 id=message_board>All messages will show up here</h1>
-    <button onclick="setAttributeOnComp()">Set attribute msg='Hi from index.html'  on components</button>
+    <h1 id="message_board">All messages will show up here</h1>
+    <button onclick="setAttributeOnComp()">
+      Set attribute msg='Hi from index.html' on components
+    </button>
     <button onclick="sendMessageToAll()">window.postMessage</button>
 
     <!-- Angular -->
     <app-root class="angular-root"></app-root>
 
-
-    <!-- Vue -->
-    <div id=app ></div>
-    <script src=/assets/vue-app/js/chunk-vendors.46dbfb77.js></script>
-    <script src=/assets/vue-app/js/app.a4585c05.js></script>
-
-
     <!-- React -->
     <div id="root" class="react-root"></div>
     <script src="/assets/react-app/static/js/runtime~main.a8a9905a.js"></script>
     <script src="/assets/react-app/static/js/2.65aa1cca.chunk.js"></script>
-    <script src="/assets/react-app/static/js/main.61d9e118.chunk.js"></script>
-
-
+    <script src="/assets/react-app/static/js/main.0294d27b.chunk.js"></script>
 
     <!-- Web Component -->
     <script src="/assets/wc/demo-element.js"></script>
     <demo-element></demo-element>
 
-
     <!-- listen to message events from all components -->
     <script>
-      var el = document.querySelector('body');
-      el.addEventListener(
-        'sendMessage',
-        msgEvent => {
-          console.log(msgEvent)
-          if(msgEvent.detail.msg) {
-            document.querySelector('#message_board').innerHTML = msgEvent.detail.msg
-          }
+      var el = document.querySelector("body");
+      el.addEventListener("sendMessage", msgEvent => {
+        console.log(msgEvent);
+        if (msgEvent.detail.msg) {
+          document.querySelector("#message_board").innerHTML =
+            msgEvent.detail.msg;
         }
-      );
+      });
 
-      window.addEventListener(
-        'message',
-        msgEvent => {
-          console.log(msgEvent)
-          if(msgEvent.data.msg) {
-            document.querySelector('#message_board').innerHTML = msgEvent.data.msg
-          }
+      window.addEventListener("message", msgEvent => {
+        console.log(msgEvent);
+        if (msgEvent.data.msg) {
+          document.querySelector("#message_board").innerHTML =
+            msgEvent.data.msg;
         }
-      );
+      });
 
       function setAttributeOnComp() {
-        document.querySelector('app-angular-demo').setAttribute("msg", "Hi from index.html!!");
-        document.querySelector('.ReactComponent').setAttribute("msg", "Hi from index.html!!");
-        document.querySelector('demo-element').setAttribute("msg", "Hi from index.html!!");
+        document
+          .querySelector("app-angular-demo")
+          .setAttribute("msg", "Hi from index.html!!");
+        document
+          .querySelector(".ReactComponent")
+          .setAttribute("msg", "Hi from index.html!!");
+        document
+          .querySelector("demo-element")
+          .setAttribute("msg", "Hi from index.html!!");
       }
 
       function sendMessageToAll() {
@@ -84,6 +77,5 @@
         );
       }
     </script>
-    
   </body>
 </html>

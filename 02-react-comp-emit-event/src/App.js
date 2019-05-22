@@ -12,6 +12,14 @@ class App extends React.Component {
       console.log(postMsg.data.msg);
       this.setState({ msg: postMsg.data.msg });
     });
+
+    var el = document.querySelector("body");
+    el.addEventListener("sendMessage", msgEvent => {
+      console.log(msgEvent);
+      if (msgEvent.detail.msg) {
+        this.setState({ msg: msgEvent.detail.msg });
+      }
+    });
   }
 
   render() {
