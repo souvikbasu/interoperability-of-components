@@ -15,8 +15,11 @@
           margin: 20px;
         }
       </style>
-      <button id="send" class="btn-primary">
-        Send Message
+      <button id="emit_event" class="btn-primary">
+        Emit Event
+      </button>
+      <button id="post_msg" class="btn-primary">
+        Post Message
       </button>
 
   `;
@@ -27,14 +30,20 @@
 
       this.attachShadow({ mode: "open" });
       this.shadowRoot.appendChild(template.content.cloneNode(true));
-      this.sendMessageButton = this.shadowRoot.querySelector("#send");
+      this.emitEventButton = this.shadowRoot.querySelector("#emit_event");
+      this.postMessageButton = this.shadowRoot.querySelector("#post_msg");
     }
 
     connectedCallback() {
       if (this.isConnected) {
-        this.sendMessageButton.addEventListener(
+        this.emitEventButton.addEventListener(
           "click",
-          this.sendMessage.bind(this)
+          this.emitEvent.bind(this)
+        );
+
+        this.postMessageButton.addEventListener(
+          "click",
+          this.postMessage.bind(this)
         );
       }
     }
@@ -43,11 +52,17 @@
       return [];
     }
 
-    sendMessage(e) {
+    emitEvent(e) {
       var event = new CustomEvent("sendMessage", {
-        detail: { msg: "Hi from Web Component!!" }
+        detail: { msg: "Hi from Web Component!! This is custom event" }
       });
       this.dispatchEvent(event);
+    }
+
+    postMessage(e) {
+      window.postMessage({
+        msg: "Hi from Web Component!! This is window.postMessage"
+      });
     }
   }
 

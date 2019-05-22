@@ -12,8 +12,12 @@ export class AngularDemoComponent implements OnInit {
 
   ngOnInit() {}
 
-  sendMessage() {
-    var wn = this.comp.nativeElement.contentWindow;
-    wn.postMessage({ type: "sendMessage", from: "Angular", msg: "Hi" });
+  postMessage() {
+    window.postMessage(
+      {
+        msg: "Hi from Angular!!"
+      },
+      "*"
+    );
   }
 }

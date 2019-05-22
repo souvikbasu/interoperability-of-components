@@ -135,6 +135,14 @@
           document.querySelector('#message_board').innerHTML = msgEvent.detail.msg
         }
       );
+
+      window.addEventListener(
+        'message',
+        msgEvent => {
+          console.log(msgEvent)
+          document.querySelector('#message_board').innerHTML = msgEvent.data.msg
+        }
+      );
     </script>
     
   </body>
