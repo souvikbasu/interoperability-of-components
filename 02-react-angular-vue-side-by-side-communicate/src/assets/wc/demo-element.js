@@ -61,7 +61,7 @@
 
     postMessage(e) {
       window.postMessage({
-        msg: "Hi from Web Component!! This is window.postMessage"
+        msg: "Hi again from Web Component!! This is window.postMessage"
       });
     }
   }
