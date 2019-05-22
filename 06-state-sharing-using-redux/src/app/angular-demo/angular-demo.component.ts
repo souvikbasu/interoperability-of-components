@@ -5,11 +5,11 @@ import { IAppState } from "../store";
 import { SEND_MESSAGE } from "../actions";
 
 @Component({
-  selector: "app-angular-component",
-  templateUrl: "./angular-component.component.html",
-  styleUrls: ["./angular-component.component.css"]
+  selector: "app-angular-demo",
+  templateUrl: "./angular-demo.component.html",
+  styleUrls: ["./angular-demo.component.css"]
 })
-export class AngularComponentComponent implements OnInit {
+export class AngularDemoComponent implements OnInit {
   @select() msg;
 
   constructor(private ngRedux: NgRedux<IAppState>) {}

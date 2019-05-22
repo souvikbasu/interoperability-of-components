@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 
 @Component({
-  selector: "app-angular-component",
+  selector: "app-angular-demo",
   template: `
     <div>Angular Element</div>
   `,
@@ -22,7 +22,7 @@ import { Component, OnInit, ViewEncapsulation } from "@angular/core";
   ],
   encapsulation: ViewEncapsulation.Native
 })
-export class AngularComponentComponent implements OnInit {
+export class AngularDemoComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}

@@ -3,11 +3,11 @@ import { NgModule } from "@angular/core";
 import { NgRedux, NgReduxModule } from "@angular-redux/store";
 
 import { AppComponent } from "./app.component";
-import { AngularComponentComponent } from "./angular-component/angular-component.component";
+import { AngularDemoComponent } from "./angular-demo/angular-demo.component";
 import { IAppState, rootReducer, INITIAL_STATE } from "./store";
 
 @NgModule({
-  declarations: [AppComponent, AngularComponentComponent],
+  declarations: [AppComponent, AngularDemoComponent],
   imports: [BrowserModule, NgReduxModule],
   providers: [],
   bootstrap: [AppComponent]

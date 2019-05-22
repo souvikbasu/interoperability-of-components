@@ -2,17 +2,17 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, Injector } from "@angular/core";
 import { createCustomElement } from "@angular/elements";
 
-import { AngularComponentComponent } from "./angular-component/angular-component.component";
+import { AngularDemoComponent } from "./angular-demo/angular-demo.component";
 
 @NgModule({
-  declarations: [AngularComponentComponent],
+  declarations: [AngularDemoComponent],
   imports: [BrowserModule],
   providers: [],
-  entryComponents: [AngularComponentComponent]
+  entryComponents: [AngularDemoComponent]
 })
 export class AppModule {
   constructor(private injector: Injector) {
-    const angularElement = createCustomElement(AngularComponentComponent, {
+    const angularElement = createCustomElement(AngularDemoComponent, {
       injector
     });
     customElements.define("angular-element", angularElement);

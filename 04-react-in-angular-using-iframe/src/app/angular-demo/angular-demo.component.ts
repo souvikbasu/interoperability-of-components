@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
-  selector: "app-angular-component",
-  templateUrl: "./angular-component.component.html",
-  styleUrls: ["./angular-component.component.css"]
+  selector: "app-angular-demo",
+  templateUrl: "./angular-demo.component.html",
+  styleUrls: ["./angular-demo.component.css"]
 })
-export class AngularComponentComponent implements OnInit {
+export class AngularDemoComponent implements OnInit {
   @ViewChild("iframe") iframe: ElementRef;
 
   reactAppUrl: any;
