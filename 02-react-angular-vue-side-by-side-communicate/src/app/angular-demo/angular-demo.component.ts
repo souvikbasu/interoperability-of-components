@@ -12,10 +12,18 @@ export class AngularDemoComponent implements OnInit {
 
   ngOnInit() {}
 
+  emitEvent() {
+    var event = new CustomEvent("sendMessage", {
+      detail: { msg: "Hi from Angular!! This is custom event" },
+      bubbles: true
+    });
+    this.comp.nativeElement.dispatchEvent(event);
+  }
+
   postMessage() {
     window.postMessage(
       {
-        msg: "Hi from Angular!!"
+        msg: "Hi again from Angular!! This is window.postMessage"
       },
       "*"
     );

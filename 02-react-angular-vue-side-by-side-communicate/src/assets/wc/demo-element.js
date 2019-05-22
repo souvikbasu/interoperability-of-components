@@ -54,7 +54,8 @@
 
     emitEvent(e) {
       var event = new CustomEvent("sendMessage", {
-        detail: { msg: "Hi from Web Component!! This is custom event" }
+        detail: { msg: "Hi from Web Component!! This is custom event" },
+        bubbles: true
       });
       this.dispatchEvent(event);
     }
