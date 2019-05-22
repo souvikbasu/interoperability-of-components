@@ -70,10 +70,9 @@
       );
 
       function setAttributeOnComp() {
-        document.querySelector('.ReactComponent').postMessage({
-          msg: "Hi from index.html!!"
-        },
-        "*")
+        document.querySelector('app-angular-demo').setAttribute("msg", "Hi from index.html!!");
+        document.querySelector('.ReactComponent').setAttribute("msg", "Hi from index.html!!");
+        document.querySelector('demo-element').setAttribute("msg", "Hi from index.html!!");
       }
 
       function sendMessageToAll() {

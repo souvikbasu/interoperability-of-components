@@ -4,7 +4,7 @@ import ReactComponent from "./components/ReactComponent/ReactComponent";
 
 class App extends React.Component {
   state = {
-    msg: ""
+    msg: "Initial msg set by parent"
   };
 
   componentDidMount() {

@@ -21,6 +21,7 @@
       <button id="post_msg" class="btn-primary">
         Post Message
       </button>
+      <div>Message received: <span id="msg_box"></span></div>
 
   `;
 
@@ -32,6 +33,7 @@
       this.shadowRoot.appendChild(template.content.cloneNode(true));
       this.emitEventButton = this.shadowRoot.querySelector("#emit_event");
       this.postMessageButton = this.shadowRoot.querySelector("#post_msg");
+      this.msgBox = this.shadowRoot.querySelector("#msg_box");
     }
 
     connectedCallback() {
@@ -49,7 +51,13 @@
     }
 
     static get observedAttributes() {
-      return [];
+      return ["msg"];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+      if (name === "msg") {
+        this.msgBox.textContent = newValue;
+      }
     }
 
     emitEvent(e) {
